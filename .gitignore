@@ -1,1 +1,11 @@
 *.json
+.venv/
+.pytest_cache/
+.DS_Store
+.vscode/
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+*.png

@@ -1,4 +1,4 @@
-# Insere dados num bucket do gcp
+# Uploads data to a GCP bucket
 import logging
 from google.cloud import storage
 from io import BytesIO
@@ -15,15 +15,15 @@ def upload_to_gcs_from_io(
     service_account_json: str = None
 ):
     """
-    Faz upload de dados em memória (BytesIO ou BytesIO) para um bucket do GCS.
+    Uploads in-memory data (BytesIO) to a GCS bucket.
 
     Args:
-        data_io: BytesIO ou BytesIO com os dados.
-        bucket_name (str): nome do bucket.
-        destination_blob_path (str): caminho dentro do bucket.
-        service_account_json (str, opcional): caminho para o JSON da service account.
+        data_io: BytesIO object containing the data.
+        bucket_name (str): Name of the GCS bucket.
+        destination_blob_path (str): Path within the bucket where the data will be stored.
+        service_account_json (str, optional): Path to the service account JSON file.
     """
-    # Cria cliente
+    # Create GCS client
     if service_account_json:
         client = storage.Client.from_service_account_json(service_account_json)
     else:
@@ -32,15 +32,15 @@ def upload_to_gcs_from_io(
     bucket = client.bucket(bucket_name)
     blob = bucket.blob(destination_blob_path)
 
-    # Detecta tipo de IO e faz upload
+    # Detect IO type and upload
     if isinstance(data_io, BytesIO):
         blob.upload_from_file(data_io, rewind=True)
     elif isinstance(data_io, BytesIO):
         blob.upload_from_string(data_io.getvalue())
     else:
-        raise ValueError("data_io deve ser BytesIO ou BytesIO")
+        raise ValueError("data_io must be a BytesIO object")
 
-    print(f"✅ Dados enviados para '{destination_blob_path}' no bucket '{bucket_name}'.")
+    print(f"✅ Data uploaded to '{destination_blob_path}' in bucket '{bucket_name}'.")
 
 if __name__ == '__main__':
     pass

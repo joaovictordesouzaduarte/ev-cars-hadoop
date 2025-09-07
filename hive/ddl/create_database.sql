@@ -1,0 +1,5 @@
+CREATE DATABASE IF NOT EXISTS ev_cars;
+
+USE ev_cars;
+
+SHOW DATABASES;
