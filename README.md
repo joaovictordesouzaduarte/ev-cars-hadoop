@@ -108,6 +108,8 @@ To set up a Python virtual environment for this project, follow these steps:
     ```bash
     chmod +x run_pipeline.sh
     ./run_pipeline.sh
-    ```
-    ![image_1](images/image_1.png)
+  ```
+
+If you saw something like this, you're ready!
+![image_1](images/image_1.png)
     
