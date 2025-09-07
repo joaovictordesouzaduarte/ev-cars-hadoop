@@ -7,14 +7,14 @@
 USE ev_cars;
 
 -- =====================================================
--- Os maiores países por estações de carregamento
+-- The largest countries by number of charging stations
 -- =====================================================
 
 -- =====================================================
--- Crie aqui mais questões para que eu possa responder:
+-- Add more questions here for me to answer:
 -- =====================================================
 
--- 1. País com maior número de estações de carregamento
+-- 1. Country with the highest number of charging stations
 SELECT 
     country_code,
     COUNT(*) as total_stations
@@ -23,8 +23,8 @@ GROUP BY country_code
 ORDER BY total_stations DESC
 LIMIT 20;
 
--- 2. Quais são os 10 principais fabricantes de veículos elétricos em número de modelos disponíveis?
--- 3. Qual é a média de potência (kW) das estações de carregamento por país, considere os países com mais de 1000 estações?
+-- 2. Who are the top 10 electric vehicle manufacturers by number of available models?
+-- 3. What is the average power (kW) of charging stations by country, considering countries with more than 1000 stations?
 SELECT 
     world_summary.country,
     AVG(power_kw) as avg_power_kw
@@ -35,7 +35,7 @@ GROUP BY world_summary.country
 ORDER BY avg_power_kw DESC
 LIMIT 10;
 
--- 4. Qual a quantidade de modelos de veículos elétricos por montadora em 2025?
+-- 4. What is the number of electric vehicle models per manufacturer in 2025?
 SELECT 
     maker,
     COUNT(*) as total_models
@@ -44,7 +44,7 @@ GROUP BY maker
 ORDER BY total_models DESC
 LIMIT 10;
 
--- 5. Qual a quantidade de modelos elétricos por body style em 2025?
+-- 5. What is the number of electric models by body style in 2025?
 SELECT 
     body_style,
     COUNT(*) as total_models
@@ -53,7 +53,7 @@ GROUP BY body_style
 ORDER BY total_models DESC
 LIMIT 10;
 
--- 6. Top 15 cidades com mais estações de carregamento
+-- 6. Top 15 cities with the most charging stations
 SELECT 
     city,
     COUNT(*) as total_stations
@@ -62,7 +62,7 @@ GROUP BY city
 ORDER BY total_stations DESC
 LIMIT 15;
 
--- 7. Qual é a distribuição dos tipos de powertrain (BEV, PHEV, FCEV) por região de mercado em 2025?
+-- 7. What is the distribution of powertrain types (BEV, PHEV, FCEV) by market region in 2025?
 SELECT 
     market_regions,
     powertrain,
@@ -72,7 +72,7 @@ GROUP BY market_regions, powertrain
 ORDER BY total_models DESC
 LIMIT 10;
 
--- 8. Quais as cidades que mais tem fast charge do mundo?
+-- 8. Which cities have the most fast charging stations in the world?
 SELECT 
     city,
     sum(is_fast_dc) as total_stations
@@ -81,9 +81,9 @@ GROUP BY city
 ORDER BY total_stations DESC
 LIMIT 10;
 
--- 10. Quais são os países com maior diversidade de modelos de veículos elétricos?
+-- 10. Which countries have the greatest diversity of electric vehicle models?
 
--- 11. Qual é a relação entre o número de estações e o número de modelos disponíveis por país?
+-- 11. What is the relationship between the number of stations and the number of available models by country?
 SELECT 
     world_summary.country,
     COUNT(*) as total_models
@@ -92,8 +92,8 @@ left join world_summary on ev_models.origin_country = world_summary.country_code
 GROUP BY world_summary.country
 ORDER BY total_models DESC
 LIMIT 10;
--- 9. Quais são as classes de potência mais comuns nas estações de carregamento?
--- 12. Quais são as classes de potência mais comuns nas estações de carregamento?
+-- 9. What are the most common power classes in charging stations?
+-- 12. What are the most common power classes in charging stations?
 
 
 
@@ -126,7 +126,7 @@ LIMIT 10;
 
 
 -- -- =====================================================
--- -- Distribuição da Classe de Potência
+-- -- Power Class Distribution
 -- -- =====================================================
 -- SELECT 
 --     power_class,
