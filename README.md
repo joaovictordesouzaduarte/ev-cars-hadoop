@@ -110,7 +110,7 @@ To set up a Python virtual environment for this project, follow these steps:
     ./run_pipeline.sh
     ```
 
-    If you saw something like this, you're ready!
+    If you see something like this, you're ready!
     ![image_1](images/image_1.png)
 
 <!-- 7. **Export the files from GCS to HDFS**
