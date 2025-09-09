@@ -6,14 +6,6 @@
 -- Set database context
 USE ev_cars;
 
--- =====================================================
--- The largest countries by number of charging stations
--- =====================================================
-
--- =====================================================
--- Add more questions here for me to answer:
--- =====================================================
-
 -- 1. Country with the highest number of charging stations
 SELECT 
     country_code,

@@ -26,3 +26,5 @@ DROP TABLE IF EXISTS world_summary;
 -- =====================================================
 SHOW TABLES;
 
+-- Drop database
+DROP DATABASE IF EXISTS ev_cars;

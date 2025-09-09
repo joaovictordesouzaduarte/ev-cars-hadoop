@@ -119,39 +119,42 @@ To set up a Python virtual environment for this project, follow these steps:
     ```bash
     ``` -->
 
-8. Business questions
+8. **Create database and Tables**
+
+9. **Business questions**
     1. Country with the highest number of charging stations
+        Answer: 
 
     ```SQL
-        SELECT 
-        country_code,
-        COUNT(*) as total_stations
-        FROM charging_stations
-        GROUP BY country_code
-        ORDER BY total_stations DESC
-        LIMIT 20;
+            SELECT 
+            country_code,
+            COUNT(*) as total_stations
+            FROM charging_stations
+            GROUP BY country_code
+            ORDER BY total_stations DESC
+            LIMIT 20;
 
     ```
     2. Who are the top 10 electric vehicle manufacturers by number of available models?
         ```SQL
-        SELECT 
-        country_code,
-        COUNT(*) as total_stations
-        FROM charging_stations
-        GROUP BY country_code
-        ORDER BY total_stations DESC
-        LIMIT 20;
+            SELECT 
+            country_code,
+            COUNT(*) as total_stations
+            FROM charging_stations
+            GROUP BY country_code
+            ORDER BY total_stations DESC
+            LIMIT 20;
 
         ```
     3. What is the average power (kW) of charging stations by country, considering countries with more than 1000 stations?
         ```SQL
-        SELECT 
-            world_summary.country,
-            AVG(power_kw) as avg_power_kw
-        FROM charging_stations
-        left join world_summary on charging_stations.country_code = world_summary.country_code
-        WHERE world_summary.count >= 1000
-        GROUP BY world_summary.country
-        ORDER BY avg_power_kw DESC
-        LIMIT 10;
+            SELECT 
+                world_summary.country,
+                AVG(power_kw) as avg_power_kw
+            FROM charging_stations
+            left join world_summary on charging_stations.country_code = world_summary.country_code
+            WHERE world_summary.count >= 1000
+            GROUP BY world_summary.country
+            ORDER BY avg_power_kw DESC
+            LIMIT 10;
         ```
