@@ -104,24 +104,13 @@ To set up a Python virtual environment for this project, follow these steps:
     ```
 5. **Create a bucket into GCS with the name 'ev-cars-bucket'**
 
-6. **Run the pipeline file**
+6. **Run the pipeline file to push files to GCS, and creating the tables**
     ```bash
     chmod +x run_pipeline.sh
     ./run_pipeline.sh
     ```
 
-    If you see something like this, you're ready!
-    ![image_1](images/image_1.png)
-
-<!-- 7. **Export the files from GCS to HDFS**
-
-    Inside your dataproc cluster, execute:
-    ```bash
-    ``` -->
-
-8. **Create database and Tables**
-
-9. **Business questions**
+7. **Business questions**
     1. Country with the highest number of charging stations
         Answer: 
 
@@ -157,4 +146,37 @@ To set up a Python virtual environment for this project, follow these steps:
             GROUP BY world_summary.country
             ORDER BY avg_power_kw DESC
             LIMIT 10;
+        ```
+    4. What is the number of electric vehicle models per manufacturer in 2025?
+
+        ```SQL
+        SELECT 
+            maker,
+            COUNT(*) as total_models
+        FROM ev_models
+        GROUP BY maker
+        ORDER BY total_models DESC
+        LIMIT 10;
+        ```
+    5. What is the number of electric models by body style in 2025?
+
+        ```SQL
+        SELECT 
+            body_style,
+            COUNT(*) as total_models
+        FROM ev_models
+        GROUP BY body_style
+        ORDER BY total_models DESC
+        LIMIT 10;
+        ```
+    6. Top 15 cities with the most charging stations
+
+        ```SQL
+        SELECT 
+            city,
+            COUNT(*) as total_stations
+        FROM charging_stations
+        GROUP BY city
+        ORDER BY total_stations DESC
+        LIMIT 15;
         ```

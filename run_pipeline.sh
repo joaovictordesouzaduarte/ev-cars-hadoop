@@ -11,27 +11,35 @@ echo "Uploading data to the GCP Bucket"
 #     -- gs://ev-cars-bucket/* /user/hadoop/warehouse/input/processed
     
 # Executing the DDL scripts to create the database and tables
-# echo "Creating the database"
-# gcloud dataproc jobs submit hive \
-#     --cluster=hadoop-curso-infnet \
-#     --region=us-central1 \
-#     --file=/home/joaovictor/projects/python/ev-cars-hadoop/gcp/jobs/dataproc/hive/ddl/create_database.sql
+echo "Creating the database"
+gcloud dataproc jobs submit hive \
+    --cluster=hadoop-curso-infnet \
+    --region=us-central1 \
+    --file=/home/joaovictor/projects/python/ev-cars-hadoop/gcp/jobs/dataproc/hive/ddl/create_database.sql
 
-# echo "Creating tables"
-# gcloud dataproc jobs submit hive \
-#     --cluster=hadoop-curso-infnet \
-#     --region=us-central1 \
-#     --file=/home/joaovictor/projects/python/ev-cars-hadoop/gcp/jobs/dataproc/hive/ddl/create_tables.sql
+echo "Creating tables"
+gcloud dataproc jobs submit hive \
+    --cluster=hadoop-curso-infnet \
+    --region=us-central1 \
+    --file=/home/joaovictor/projects/python/ev-cars-hadoop/gcp/jobs/dataproc/hive/ddl/create_tables.sql
 
-# echo "Loading data into tables"
-# gcloud dataproc jobs submit hive \
-#     --cluster=hadoop-curso-infnet \
-#     --region=us-central1 \
-#     --file=/home/joaovictor/projects/python/ev-cars-hadoop/gcp/jobs/dataproc/hive/dml/load_data.sql
+echo "Loading data into tables"
+gcloud dataproc jobs submit hive \
+    --cluster=hadoop-curso-infnet \
+    --region=us-central1 \
+    --file=/home/joaovictor/projects/python/ev-cars-hadoop/gcp/jobs/dataproc/hive/dml/load_data.sql
 
 # Executing the analytics scripts
-# echo "Executing the analytics scripts"
+echo "Executing the analytics scripts"
+gcloud dataproc jobs submit hive \
+    --cluster=hadoop-curso-infnet \
+    --region=us-central1 \
+    --file=/home/joaovictor/projects/python/ev-cars-hadoop/gcp/jobs/dataproc/hive/scripts/analytics.sql
+
+# echo "Dropping the database and tables"
 # gcloud dataproc jobs submit hive \
 #     --cluster=hadoop-curso-infnet \
 #     --region=us-central1 \
-#     --file=/home/joaovictor/projects/python/ev-cars-hadoop/gcp/jobs/dataproc/hive/scripts/analytics.sql
+#     --file=/home/joaovictor/projects/python/ev-cars-hadoop/gcp/jobs/dataproc/hive/ddl/drop_tables.sql
+
+echo "Pipeline completed successfully"
