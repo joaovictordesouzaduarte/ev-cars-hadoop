@@ -93,24 +93,25 @@ This project analyzes four comprehensive datasets related to electric vehicle in
 To set up a Python virtual environment for this project, follow these steps:
 
 1. **Clone this project**
-2. **Create a virtual environment** (recommended: Python 3.8+):
-3. **Installing packages**: 
+2. **Create a Dataproc cluster in GCP and change the name in run_pipepine.sh. Use the whatever region you want.**
+3. **Create a virtual environment** (recommended: Python 3.8+):
+4. **Installing packages**: 
      ```python
      pip install -r requirements.txt
      ```
-4. **Create your Service Account Key as a env file**
+5. **Create your Service Account Key as a env file**
     ```bash
     export GOOGLE_APPLICATION_CREDENTIALS="path/to/your_credentials.json"
     ```
-5. **Create a bucket into GCS with the name 'ev-cars-bucket'**
+6. **Create a bucket into GCS with the name 'ev-cars-bucket'**
 
-6. **Run the pipeline file to push files to GCS, and creating the tables**
+7. **Run the pipeline file to push files to GCS, and creating the tables**
     ```bash
     chmod +x run_pipeline.sh
     ./run_pipeline.sh
     ```
 
-7. **Business questions**
+8. **Business questions**
     1. Country with the highest number of charging stations
         Answer: 
 
@@ -187,7 +188,7 @@ To set up a Python virtual environment for this project, follow these steps:
         ORDER BY total_stations DESC
         LIMIT 15;
         ```
-        
+
 
     7. Which countries have the most advanced charging technology?
     ```SQL
@@ -199,4 +200,6 @@ To set up a Python virtual environment for this project, follow these steps:
         ORDER BY total_stations DESC
         LIMIT 10;
     ```
-    
+*Disclaimers* 
+Given that this project is for study purposes only, some credits will be needed in your GCP account. Make sure to create a new account.
+
