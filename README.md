@@ -150,6 +150,7 @@ To set up a Python virtual environment for this project, follow these steps:
             ORDER BY avg_power_kw DESC
             LIMIT 10;
         ```
+        ![Resposta:o](./images/image_q3.png)
     4. What is the number of electric vehicle models per manufacturer in 2025?
 
         ```SQL
@@ -161,6 +162,8 @@ To set up a Python virtual environment for this project, follow these steps:
         ORDER BY total_models DESC
         LIMIT 10;
         ```
+        ![Resposta:o](./images/image_q4.png)
+        
     5. What is the number of electric models by body style in 2025?
 
         ```SQL
@@ -172,6 +175,7 @@ To set up a Python virtual environment for this project, follow these steps:
         ORDER BY total_models DESC
         LIMIT 10;
         ```
+        ![Resposta:o](./images/image_q5.png)
     6. Top 15 cities with the most charging stations
 
         ```SQL
@@ -183,6 +187,7 @@ To set up a Python virtual environment for this project, follow these steps:
         ORDER BY total_stations DESC
         LIMIT 15;
         ```
+        
 
     7. Which countries have the most advanced charging technology?
     ```SQL
