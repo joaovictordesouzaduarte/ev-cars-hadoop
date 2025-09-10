@@ -16,6 +16,13 @@ ORDER BY total_stations DESC
 LIMIT 20;
 
 -- 2. Who are the top 10 electric vehicle manufacturers by number of available models?
+SELECT 
+country_code,
+COUNT(*) as total_stations
+FROM charging_stations
+GROUP BY country_code
+ORDER BY total_stations DESC
+LIMIT 20;
 -- 3. What is the average power (kW) of charging stations by country, considering countries with more than 1000 stations?
 SELECT 
     world_summary.country,
@@ -54,39 +61,22 @@ GROUP BY city
 ORDER BY total_stations DESC
 LIMIT 15;
 
--- 7. What is the distribution of powertrain types (BEV, PHEV, FCEV) by market region in 2025?
+-- 7. Which countries have the most advanced charging technology?
 SELECT 
-    market_regions,
-    powertrain,
-    COUNT(*) as total_models
-FROM ev_models
-GROUP BY market_regions, powertrain
-ORDER BY total_models DESC
+    country_code,
+    COUNT(*) as total_stations
+FROM charging_stations
+GROUP BY country_code
+ORDER BY total_stations DESC
 LIMIT 10;
-
 -- 8. Which cities have the most fast charging stations in the world?
 SELECT 
     city,
-    sum(is_fast_dc) as total_stations
+    sum(CASE WHEN is_fast_dc = true THEN 1 ELSE 0 END) as total_stations
 FROM charging_stations
 GROUP BY city
 ORDER BY total_stations DESC
 LIMIT 10;
-
--- 10. Which countries have the greatest diversity of electric vehicle models?
-
--- 11. What is the relationship between the number of stations and the number of available models by country?
-SELECT 
-    world_summary.country,
-    COUNT(*) as total_models
-FROM ev_models
-left join world_summary on ev_models.origin_country = world_summary.country_code
-GROUP BY world_summary.country
-ORDER BY total_models DESC
-LIMIT 10;
--- 9. What are the most common power classes in charging stations?
--- 12. What are the most common power classes in charging stations?
-
 
 
 

@@ -124,6 +124,8 @@ To set up a Python virtual environment for this project, follow these steps:
             LIMIT 20;
 
     ```
+    ![Resposta:o](./images/image_q1.png)
+
     2. Who are the top 10 electric vehicle manufacturers by number of available models?
         ```SQL
             SELECT 
@@ -135,6 +137,7 @@ To set up a Python virtual environment for this project, follow these steps:
             LIMIT 20;
 
         ```
+
     3. What is the average power (kW) of charging stations by country, considering countries with more than 1000 stations?
         ```SQL
             SELECT 
@@ -180,3 +183,15 @@ To set up a Python virtual environment for this project, follow these steps:
         ORDER BY total_stations DESC
         LIMIT 15;
         ```
+
+    7. Which countries have the most advanced charging technology?
+    ```SQL
+        SELECT 
+            country_code,
+            COUNT(*) as total_stations
+        FROM charging_stations
+        GROUP BY country_code
+        ORDER BY total_stations DESC
+        LIMIT 10;
+    ```
+    
